@@ -18,8 +18,8 @@ http://$AMBARI_HOST:8080
 - To download the Hue service folder, run below
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-rm -rf /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HUE  
-sudo git clone https://github.com/EsharEditor/ambari-hue-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HUE
+sudo rm -rf /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HUE  
+sudo git clone https://github.com/mkkim85/ambari-hue-service /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HUE
 ```
 
 - Restart Ambari
