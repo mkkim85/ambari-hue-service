@@ -24,7 +24,7 @@ sudo git clone https://github.com/mkkim85/ambari-hue-service /var/lib/ambari-ser
 
 - Restart Ambari
 ```
-service ambari-server restart
+sudo service ambari-server restart
 ```
 - Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bottom left of the Ambari dashboard:
 
@@ -84,11 +84,11 @@ export PASSWORD=admin
 export AMBARI_HOST=localhost
 
 #detect name of cluster
-output=`curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari'  http://$AMBARI_HOST:8080/api/v1/clusters`
-CLUSTER=`echo $output | sed -n 's/.*"cluster_name" : "\([^\"]*\)".*/\1/p'`
+sudo output=`curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari'  http://$AMBARI_HOST:8080/api/v1/clusters`
+sudo CLUSTER=`echo $output | sed -n 's/.*"cluster_name" : "\([^\"]*\)".*/\1/p'`
 
 #unregister service from ambari
-curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X DELETE http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER/services/$SERVICE
+sudo curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X DELETE http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER/services/$SERVICE
 
 #if above errors out, run below first to fully stop the service
 #curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X PUT -d '{"RequestInfo": {"context" :"Stop $SERVICE via REST"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' http://$AMBARI_HOST:8080/api/v1/clusters/$CLUSTER/services/$SERVICE
@@ -96,8 +96,8 @@ curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X DELETE http://$AMBARI_
 - Remove artifacts
 
 ```
-rm -rf /usr/local/hue*
-rm -rf /var/log/hue
-rm -rf /var/run/hue
-rm /usr/hdp/current/hadoop-client/lib/hue-plugins-3.11.0-SNAPSHOT.jar
+sudo rm -rf /usr/local/hue*
+sudo rm -rf /var/log/hue
+sudo rm -rf /var/run/hue
+sudo rm /usr/hdp/current/hadoop-client/lib/hue-plugins-3.11.0-SNAPSHOT.jar
 ```   
