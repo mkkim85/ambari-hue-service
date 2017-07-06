@@ -54,8 +54,10 @@ def download_hue():
   """
   Download Hue to the installation directory
   """
-  Execute('{0} | xargs wget -O hue.tgz'.format(params.download_url))
-  Execute('tar -zxvf hue.tgz -C {0} && rm -f hue.tgz'.format(params.hue_install_dir))
+  Execute('{0} | xargs wget -O {1}/hue.tgz'.format(params.download_url,params.hue_install_dir))
+  Execute('tar -zxvf {0}/hue.tgz -C {0} && rm -f {0}/hue.tgz'.format(params.hue_install_dir))
+  Execute('cd {0}/hue-* && make install > /var/tmp/hue_install.log'.format(params.hue_install_dir))
+  Execute('rm -rf {0}//hue-*'.format(params.hue_install_dir))
   # Ensure all Hue files owned by hue
   Execute('chown -R {0}:{1} {2}'.format(params.hue_user,params.hue_group,params.hue_dir))
   Execute('ln -s {0} /usr/hdp/current/hue-server'.format(params.hue_dir))
