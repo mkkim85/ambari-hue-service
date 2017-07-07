@@ -5,7 +5,7 @@ Authors:
   - [Kyle Joe](https://github.com/EsharEditor): Hue Install/Config/Start/Stop via Ambari
 
 #### Version
-- Hue v3.11.0+
+- Hue v3.12.0+
 - Ambari v2.4.0+
 
 #### Setup
@@ -99,5 +99,5 @@ sudo curl -u admin:$PASSWORD -i -H 'X-Requested-By: ambari' -X DELETE http://$AM
 sudo rm -rf /usr/local/hue*
 sudo rm -rf /var/log/hue
 sudo rm -rf /var/run/hue
-sudo rm /usr/hdp/current/hadoop-client/lib/hue-plugins-3.11.0-SNAPSHOT.jar
+sudo rm /usr/hdp/current/hadoop-client/lib/hue-plugins-3.12.0-SNAPSHOT.jar
 ```   
