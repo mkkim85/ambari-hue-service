@@ -72,7 +72,7 @@
   <property>
     <name>query_partitions_limit</name>
     <value>10</value>
-    <display-name>Query Partitions Pimit</display-name>
+    <display-name>Query Partitions Limit</display-name>
     <description>The maximum number of partitions that will be included in the SELECT * LIMIT sample query for partitioned tables</description>
     <on-ambari-upgrade add="true"/>
   </property>
