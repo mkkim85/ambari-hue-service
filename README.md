@@ -5,7 +5,7 @@ Authors:
   - [Kyle Joe](https://github.com/EsharEditor): Hue Install/Config/Start/Stop via Ambari
 
 #### Version
-- Hue v3.12.0+
+- Hue v4.1.0+
 - Ambari v2.4.0+
 
 #### Setup
